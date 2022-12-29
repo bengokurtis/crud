@@ -1,7 +1,7 @@
 <?php
 
 if  (isset($_POST['create'])){
-    include "db_conn.php";
+    include "../crud/db_conn.php";
 
     function validate($data){
         $data = trim($data);
@@ -26,6 +26,13 @@ if  (isset($_POST['create'])){
         header("Location: ../crud/index.php?error=Email is required&$user_data");
     }
     else {
-        echo "Fine";
+        $sql = "INSERT INTO users(name, email) VALUES ('$name', '$email')";
+        $result = mysqli_query($conn, $sql);
+
+        if ($result){
+            echo "Success";
+        } else{
+            header("Location: ../index.php?error=unknown error occurred&$user_data");
+        }
     }
 }

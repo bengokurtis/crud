@@ -14,7 +14,7 @@
             method="POST">
        
         <h4 class="display-4 text-center">Create</h4><hr><br>
-        
+
         <?php if (isset($_GET['error'])) { ?>
         <div class="alert alert-danger" role="alert">
             <?php echo $_GET['error']; ?> 
@@ -27,24 +27,25 @@
                         class="form-control" 
                         id="name"
                         name="name"
+                        value= "<?php if(isset($_GET['name'])) echo ($_GET['name']); ?> "
                         placeholder="Enter name">
         </div>
 
                 <div class="form-group">
-                <label for="email" class="form-label">Enter email</label>
+                <label for="email" class="form-label">Your email</label>
                 <input type="email" 
                         class="form-control" 
                         id="email"
                         name="email"
+                        value= "<?php if(isset($_GET['email'])) echo ($_GET['email']); ?> "
                         placeholder="Enter email">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 
     <button type="submit" 
             class="btn btn-primary"
-            name="create">Submit</button>
+            name="create">Create</button>
+            <a href="read.php" class="link-primary">View</a>
     </form>
-    </div>
-       
-</div>
+</div> 
 </body>
 </html>
